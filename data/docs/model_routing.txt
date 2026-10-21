@@ -1,0 +1,5 @@
+Cost-aware routing sends each request to the cheapest model that can handle it. Simple factual lookups can go to a small, fast model, while questions that need multi-step reasoning, comparison, or long answers go to a larger model. Most production traffic is simple, so routing can cut the bill substantially without hurting quality on hard questions.
+
+Routers estimate difficulty from signals such as query length, reasoning keywords, whether the question has several parts, and how well the retrieved documents match the question. A weak retrieval match is often a sign that the model will need to work harder or that the answer is not in the knowledge base.
+
+A budget guard adds a hard limit. If the estimated cost of the chosen model would exceed the remaining budget, the router steps down to a cheaper tier. Some systems also use cascading, where the small model answers first and the request is escalated to a larger model only if the answer looks uncertain.

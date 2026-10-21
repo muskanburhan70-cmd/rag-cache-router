@@ -1,0 +1,5 @@
+Retrieval-augmented generation, or RAG, gives a language model access to documents it was not trained on. Documents are split into chunks, each chunk is embedded as a vector, and the vectors are stored in a vector database. At question time the query is embedded, the most similar chunks are retrieved, and they are placed in the prompt as context.
+
+Chunk size matters. Chunks that are too large dilute the relevant sentence and waste input tokens. Chunks that are too small lose surrounding meaning. A common starting point is a paragraph of around 100 to 200 words with a small overlap.
+
+RAG reduces hallucination because the model is instructed to answer only from the retrieved context. It also makes knowledge easy to update, since changing the documents does not require retraining the model. Input tokens from retrieved context are usually the largest part of the cost of each request.

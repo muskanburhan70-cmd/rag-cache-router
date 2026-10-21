@@ -1,0 +1,4 @@
+numpy
+fastembed        # small ONNX embeddings, no PyTorch needed (works on weak laptops / Codespaces / Colab)
+anthropic        # optional: only used if ANTHROPIC_API_KEY is set
+streamlit        # optional: for the dashboard (app.py)

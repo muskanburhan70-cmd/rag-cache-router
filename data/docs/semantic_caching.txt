@@ -1,0 +1,5 @@
+Semantic caching stores previous questions together with their answers. When a new question arrives, it is converted to an embedding vector and compared with the cached question vectors using cosine similarity. If the best match is above a threshold, the cached answer is returned immediately and no language model call is made.
+
+The similarity threshold controls the trade-off between savings and correctness. A high threshold such as 0.95 returns cached answers only for near-identical questions. A low threshold saves more money but risks returning an answer to a question that only looks similar. Cached entries should expire with a time to live so that stale answers are not served after the underlying documents change.
+
+Exact-match caching only works when two questions are character-for-character identical. Semantic caching also catches paraphrases such as "how do I reset my password" and "steps to change a forgotten password".
